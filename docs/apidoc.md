@@ -101,9 +101,9 @@
 ```POST /api/urgencias/donate```
 ```json
 {
-  "idBank",
-  "idDonator",
-  "quantity",
-  "idUser"
+  "idBank": "f9843dknfdfdfdf",
+  "idDonator": "lkfj933km34e3e3",
+  "quantity": 6,
+  "idUser": "8728jdw982323e2"
 }
 ```
