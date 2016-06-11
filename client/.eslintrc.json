@@ -1,0 +1,47 @@
+{
+  "parser": "babel-eslint",
+  "plugins": [
+    "import"
+  ],
+  "extends": [
+    "eslint:recommended"
+  ],
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "parserOptions":{
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "arrowFunctions": true,
+      "blockBindings": true,
+      "classes": true,
+      "defaultParams": true,
+      "destructuring": true,
+      "forOf": true,
+      "generators": true,
+      "modules": true,
+      "spread": true,
+      "templateStrings": true
+    }
+  },
+  "rules": {
+    "comma-dangle": [
+      "warn",
+      "always-multiline"
+    ],
+    "consistent-return": "warn",
+    "key-spacing": [
+      "warn", {
+      "beforeColon": false,
+      "afterColon": true
+    }],
+    "quotes": "off",
+    "new-cap": "warn",
+    "no-multi-spaces": "warn",
+    "no-shadow": "error",
+    "no-unused-vars": "warn",
+    "no-use-before-define": "off"
+  }
+}

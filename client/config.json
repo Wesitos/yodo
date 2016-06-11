@@ -1,0 +1,35 @@
+{
+  "browserify": {
+    "src": "src/js/",
+    "extname": "js",
+    "build": "dist/js/",
+    "plugin": []
+  },
+  "html":{
+    "src": "src/html",
+    "build": "dist/",
+    "extname": "html"
+  },
+  "media":{
+    "src": "src/media",
+    "build": "dist/media/"
+  },
+  "styles": {
+    "build": "dist/css",
+    "sass": {
+      "src": "src/styles",
+      "extname": "scss",
+      "includePaths": [
+        "node_modules/materialize-css/sass"
+      ]
+    }
+  },
+  "vendor": {
+    "require": [
+    ],
+    "build": {
+      "dirname": "dist/js/",
+      "name": "vendor.js"
+    }
+  }
+}
