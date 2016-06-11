@@ -1,0 +1,26 @@
+{
+  "name": "yodo-server",
+  "version": "0.0.1",
+  "description": "Server stuff",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wesitos/yodo.git"
+  },
+  "author": "",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Wesitos/yodo/issues"
+  },
+  "homepage": "https://github.com/Wesitos/yodo#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "lodash": "^4.13.1",
+    "nodemailer": "^2.4.2",
+    "passport": "^0.3.2",
+    "twilio": "^2.9.1"
+  }
+}
