@@ -1,0 +1,127 @@
+Info:{{
+"name":"Instituto Nacional Materno Perinatal",
+"geo":[-12.0526683,-77.0219048],
+"schedule":"Lunes a domingo de 8:00 am  a 6:00 pm",
+"image": "http://www.igss.gob.pe/portal/images/NP_1013MATERNO.jpg",
+"contact": "328-1370"
+}, 
+
+{
+"name":"Hospital Nacional Docente Madre Niño "San Bartolomé",
+"geo":[-12.0497477,-77.0768937],
+"schedule":"Lunes a sábado de 8:30 am a 1:30 pm y de 2:30 pm a 5:30 pm",
+"image": "http://cde.peru.com/ima/0/1/3/7/1/1371307/611x458/facebook.jpg",
+"contact": "201-0400"
+}, 
+
+{
+"name":"Hospital Nacional Dos de Mayo",
+"geo":[-12.0558716,-77.0506925],
+"schedule":"Lunes a sábado de 8:30 am a 1:30 pm y de 2:30 pm a 5:30 pm",
+"image": "http://diariomedico.pe/wp-content/uploads/2013/01/Hospital-2-de-mayo.jpg",
+"contact": "328-0028"
+}, 
+
+{
+"name":"Instituto Nacional de Salud del Niño de Breña",
+"geo":[-12.0749885,-77.0541293],
+"schedule":"Lunes a sábado de 8:30 am a 1:30 pm y de 2:30 pm a 5:30 pm",
+"image": "http://diariomedico.pe/wp-content/uploads/2013/01/Hospital-2-de-mayo.jpg",
+"contact": "330-2632"
+}, 
+
+{
+"name":"Hospital Nacional Arzobispo Loayza",
+"geo":[-12.049729,-77.0779383],
+"schedule":"Lunes a sábado de 7:00 am a 7:00 pm",
+"image": "http://www.hospitalloayza.gob.pe/files/NP0000000564_59873ac19b37a66HNAL.jpg",
+"contact": "614-4646"
+},
+
+{
+"name":"Instituto Nacional de Enfermedades Neoplásicas",
+"geo":[-12.1122048,-77.0333886],
+"schedule":"Lunes a domingo de 8:00 am a 7:00 pm",
+"image": "http://www.minsa.gob.pe/dgiem/imagenes/galeria-infraestructura/insts/images/Instituto%20Nacional%20de%20Enfermedades%20Neopl%E1sicas.jpg",
+"contact": "201-6500"
+},
+
+{
+"name":"Hospital Santa Rosa",
+"geo":[-12.0723255,-77.0959632],
+"schedule":"Lunes a domingo de 8:00 am a 7:00 pm",
+"image": "http://www.minsa.gob.pe/portada/prensa/Notasprensa/fotonotasdeprensa/1250-13/PORTADA_SANTA_ROSA.jpg",
+"contact": "615-8200"
+},
+
+{
+"name":"Hospital Nacional Hipólito Unanue",
+"geo":[-12.0409513,-77.0274071],
+"schedule":"Lunes a sábado de 7:00 am a 10:30 am  y de 1:00 pm a 3:00 pm",
+"image": "http://ual.edu.pe/wp-content/uploads/2013/12/hipolito_unanue.jpg",
+"contact": "3627777 anexo 2136"
+},
+
+{
+"name":"Hospital María Auxiliadora",
+"geo":[-12.1618753,-76.9617916],
+"schedule":"Lunes a sábado de 8:00 am a 5:00 pm",
+"image": "http://ual.edu.pe/wp-content/uploads/2013/12/hipolito_unanue.jpg",
+"contact": "217-1818"
+},
+{
+"name":"Hospital Daniel Alcides Carrión",
+"geo":[-12.0635824,-77.1594463],
+"schedule":"Lunes a sábado de 8:00 am a 1:00 pm y 2:00 pm a 6:00 pm",
+"image": "http://www.unmsm.edu.pe/noticias/templates/noticias2010/febrero/d25/b1g.jpg",
+"contact": "6147474 anexo 3105"
+},
+{
+"name":"Hospital Daniel Alcides Carrión",
+"geo":[-12.0226936,-77.0953516],
+"schedule":"Lunes a sábado de 8:00 am a 11:00 am  y de 2:00 pm a 5:00 pm ",
+"image": "http://www.minsa.gob.pe/portada/prensa/Notasprensa/fotonotasdeprensa/0464-13/hosp_cayetano_heredia_web.jpg",
+"contact": "482-0402"
+},
+
+{
+"name":"Instituto Nacional de Salud del Niño San Borja",
+"geo":[-12.0853395,-77.0270471],
+"schedule":"Lunes a sábado de 8:00 am a 2:00 pm ",
+"image": "http://perunoticias.net/sites/default/files/fotos/frontis.jpg",
+"contact": "230-0616 "
+},
+
+{
+"name":"Hospital Sergio Bernales",
+"geo":[-11.9145326,-77.0734753],
+"schedule":"Lunes a domingo 8:00 am a 11:00 am y 2:00 pm a 5:00 pm",
+"image": "http://www.minsa.gob.pe/portada/prensa/Notasprensa/fotonotasdeprensa/0099-11/DSC_0094.jpg",
+"contact": "5580186 anexo 248"
+},
+
+
+{
+"name":"Hospital Nacional Edgardo Rebagliati Martins - EsSalud",
+"geo":[-12.0862682,-77.1012989],
+"schedule":"Lunes a sábado 7:00 am a 3:00 pm ",
+"image": "http://diariolaverdad.pe/wp-content/themes/Yen/timthumb.php?src=http://diariolaverdad.pe/wp-content/uploads/2014/07/hospital-edgardo-rebagliati.jpg",
+"contact": "2654901 anexo 3784"
+},
+
+{
+"name":"Hospital Nacional Guillermo Almenara Irigoyen- EsSalud",
+"geo":[-12.0594796,-77.0572814],
+"schedule":"Lunes a viernes 8:00 am a 3:00 pm  ",
+"image": "http://3.bp.blogspot.com/-LqZ8sGSWppE/VmYlYhiI65I/AAAAAAAAQ3M/kPeWCUJck6M/s1600/InfraestructuraPeruana.jpg",
+"contact": "3242983  Anexo 44163 "
+},
+
+{
+"name":"Hospital Nacional Alberto Sabogal Sologuren - EsSalud",
+"geo":[-12.0641812,-77.1572888],
+"schedule":"Lunes a Sábado de 07:30 am a 01:00 pm",
+"image": "http://cde.3.elcomercio.pe/ima/0/0/8/3/2/832610/base_image.jpg",
+"contact": "4297744 Anexo 5345 "
+}
+}
