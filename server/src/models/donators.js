@@ -2,30 +2,33 @@ import mongoose from 'mongoose';
 var types = mongoose.Schema.Types;
 
 var oschema = new mongoose.Schema({
-    dni: {type: types.String, index: true},
-    info: {
-        names: types.String,
-        lastNames: types.String,
-        gender: types.String,
-        ubigeo: types.String,
-        birth: types.String
+  dni: {type: types.String, index: true},
+  info: {
+    names: types.String,
+    lastNames: types.String,
+    gender: types.String,
+    ubigeo: types.String,
+    birth: types.String,
+  },
+  contact: {
+    email: {
+      value: types.String,
+      verified: types.Boolean,
+      code: types.String,
     },
-    contact: {
-        email: {
-            value: types.String,
-            verified: types.Boolean,
-            code: types.String
-        },
-        telephone: {
-            value: types.String,
-            verified: types.Boolean,
-            code: types.String
-        },
-        medinfo: {
-            bloodType: {type: types.String, enum: ['O-','O+','A-','A+','B-','B+','AB-','AB+']},
-            validDonator: types.Boolean,
-            verified: types.Boolean
-        }
-    }
+    telephone: {
+      value: types.String,
+      verified: types.Boolean,
+      code: types.String,
+    },
+    medinfo: {
+      bloodType: {
+        type: types.String,
+        enum: ['O-','O+','A-','A+','B-','B+','AB-','AB+'],
+      },
+      validDonator: types.Boolean,
+      verified: types.Boolean,
+    },
+  },
 });
 export default mongoose.model('Donators',oschema);
