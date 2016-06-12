@@ -51,7 +51,7 @@ router.get('/bydni/:dni', function(req, res){
 router.get('/byemail/:email', function(req, res){
     donatorModel.findOne({email: req.params.email}, function(err, dat){
         if(err) return res.status(500).send('Internal Server Error');
-        if (dat===null){
+        if (dat==null){
             res.send({success: false, data: null});
         }else{
             var ret = {
