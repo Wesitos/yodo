@@ -22,9 +22,9 @@
   },
   "vendor": {
     "require": [
-      'angular-material',
-      'angular-ui-router',
-      'angular-material-data-table'
+      "angular-material",
+      "angular-ui-router",
+      "angular-material-data-table"
     ],
     "build": {
       "dirname": "dist/js/",
