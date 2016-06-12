@@ -1,0 +1,32 @@
+include ./header.jade
+  body
+    tr
+      td.innerpadding.borderbottom
+        table(width='100%', border='0', cellspacing='0', cellpadding='0')
+          tr
+            td.h2
+              | Hola Carlo
+          tr
+            td.bodycopy
+              | Muchas gracias por registrarte a YoDonante
+    tr
+      td.innerpadding.borderbottom
+        table(width='115', align='left', border='0', cellpadding='0', cellspacing='0')
+          tr
+            td(height='115', style='padding: 0 0 0 0;')
+              img.fix(src='images/checked.png', width='', height='', border='0', alt='')
+        table.col380(align='left', border='0', cellpadding='0', cellspacing='0', style='width: 100%; max-width: 380px;')
+          tr
+            td
+              table(width='100%', border='0', cellspacing='0', cellpadding='0')
+                tr
+                  td.bodycopy
+                    | Tan solo un paso más. Necesitamos que verifiques tu correo por favor.
+                tr
+                  td(style='padding: 20px 0 0 0;')
+                    table.buttonwrapper(bgcolor='#e05443', border='0', cellspacing='0', cellpadding='0')
+                      tr
+                        td.button(height='45')
+                          a(href='#') Validar tu correo
+        //if (gte mso 9)|(IE)
+include ./footer.jade
