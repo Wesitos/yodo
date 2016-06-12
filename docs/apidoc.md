@@ -1,5 +1,5 @@
-```GET /api/donators/dni/:dni```
-```GET /api/donators/email/:email```
+```GET /api/donators/bydni/:dni```
+```GET /api/donators/byemail/:email```
 ```json
 {
   "dni": "92740273",
@@ -27,7 +27,7 @@
   }
 }
 ```
-```POST /api/donators/add```
+```POST /api/donators```
 ```json
 {
   "info": {
@@ -47,7 +47,7 @@
   }
 }
 ```
-```PUT /api/donators/update/:id```
+```PUT /api/donators/:id```
 ```json
 {
   "dni": "92740273",
@@ -75,7 +75,7 @@
   }
 }
 ```
-```GET /api/urgencias/bank/:id```
+```GET /api/urgencias/bybank/:id```
 ```json
 [{
   "bloodType": "AB+",
@@ -87,7 +87,7 @@
   "active": true 
 }]
 ```
-```POST /api/urgencias/add```
+```POST /api/urgencias```
 ```json
 [
 {
@@ -100,7 +100,7 @@
 }
 ]
 ```
-```POST /api/urgencias/donate```
+```PUT /api/urgencias/donate```
 ```json
 {
   "idBank": "f9843dknfdfdfdf",
@@ -109,7 +109,7 @@
   "idUser": "8728jdw982323e2"
 }
 ```
-```GET /api/banks/:lat/:long/:btype```
+```GET /api/banks/bylocbtype/:lat/:long/:btype```
 ```json
 [
 {
