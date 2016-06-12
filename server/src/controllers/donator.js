@@ -1,9 +1,10 @@
-import express from 'express';
-import mongoose from 'mongoose';
+import {Router} from 'express';
 import crypto from 'bcrypt';
 import {verifyAddress} from '../utils/smtp.js';
 import donatorModel from '../models/donator.js';
-var router = express.Router();
+import sanitize from 'mongo-sanitize';
+
+const router = Router();
 
 router.get('/bydni/:dni',function(req, res){
     donatorModel.findOne({dni: req.params.dni}, function(err, dat){
