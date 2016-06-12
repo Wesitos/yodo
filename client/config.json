@@ -17,6 +17,7 @@
     "sass": {
       "src": "src/styles/**/*.scss",
       "includePaths": [
+        "node_modules/angular-material"
       ]
     }
   },
