@@ -8,6 +8,8 @@ var cleanStyles = require('./tasks/clean-styles.js');
 var browserify = require('./tasks/browserify.js');
 var watchify = require('./tasks/watchify.js');
 var vendor = require('./tasks/vendor.js');
+var html = require('./tasks/html.js');
+var media = require('./tasks/media.js');
 
 // Nos aseguramos que NODE_ENV este definido
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -18,6 +20,9 @@ gulp.task('postcss', postcss.dependencies, postcss);
 gulp.task('browserify', browserify);
 gulp.task('watchify', watchify);
 gulp.task('vendor', vendor);
+gulp.task('html', html);
+gulp.task('media', media);
+
 
 //clean tasks
 gulp.task('clean-styles', cleanStyles);
@@ -30,11 +35,17 @@ gulp.task('set-production', function(cb){
 
 gulp.task('styles', ['sass']);
 
-gulp.task('build', [
-  'browserify',
+gulp.task('common', [
   'vendor',
   'styles',
   'postcss',
+  'html',
+  'media',
+]);
+
+gulp.task('build', [
+  'browserify',
+  'common'
 ]);
 
 gulp.task('clean', ['clean-styles']);
@@ -49,16 +60,18 @@ gulp.task('deploy', function(cb){
 
 // Watch task!
 gulp.task('watch', [
-  'vendor',
   'watchify',
-  'styles',
-  'postcss',
+  'common',
 ], function(){
   gulp.watch(sass.watch, ['sass'])
     .on('change', changeHandler);
   gulp.watch(postcss.watch, ['postcss'])
     .on('change', changeHandler);
   gulp.watch(vendor.watch, ['vendor'])
+    .on('change', changeHandler);
+  gulp.watch(html.watch, ['html'])
+    .on('change', changeHandler);
+  gulp.watch(media.watch, ['media'])
     .on('change', changeHandler);
 });
 
