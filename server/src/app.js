@@ -10,10 +10,9 @@ import {middleware as logger} from './logger.js';
 const app = express();
 
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers",
-             "Origin, X-Requested-With, Content-Type, Accept");
-  next();
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
 });
 
 app.use(bodyParser());
@@ -23,13 +22,12 @@ app.use(cookieParser());
 app.use(compression());
 
 app.use(logger);
-
-
+/*
 app.use(parseJWT.unless({path: [
   '/api/login',
   {url: '/api/donator', methods: ['POST']},
 ]}));
-
+*/
 
 //Routes
 
