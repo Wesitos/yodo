@@ -1,9 +1,8 @@
 import mongoose from 'mongoose';
-
 var types = mongoose.Schema.Types;
 
 var oschema = new mongoose.Schema({
-    dni: types.String,
+    dni: {type: types.String, index: true},
     info: {
         names: types.String,
         lastNames: types.String,
@@ -29,4 +28,4 @@ var oschema = new mongoose.Schema({
         }
     }
 });
-export default oschema;
+export default mongoose.model('Donators',oschema);

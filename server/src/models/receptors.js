@@ -17,3 +17,4 @@ var oschema = new mongoose.Schema({
     left: types.Number,
     active: types.Boolean
 });
+export default mongoose.model('Receptors',oschema);

@@ -1,8 +1,8 @@
 ```
-GET /api/donators/bydni/:dni
+GET /api/donator/bydni/:dni
 ```
 ```
-GET /api/donators/byemail/:email
+GET /api/donator/byemail/:email
 ```
 ```json
 {
@@ -37,7 +37,7 @@ data: {
 ```
 
 ```
-POST /api/donators
+POST /api/donator
 ```
 Request
 ```json
@@ -87,7 +87,7 @@ Response
 }
 ```
 ```
-```PUT /api/donators/:id```
+```PUT /api/donator/:id```
 ```json
 {
 success: true,
@@ -118,7 +118,7 @@ data: {
 }
 }
 ```
-```GET /api/urgencias/bybank/:id```
+```GET /api/receptor/bybank/:id```
 ```json
 {
 success: true,
@@ -133,7 +133,7 @@ data: [{
 }]
 }
 ```
-```POST /api/urgencias```
+```POST /api/receptor```
 ```json
 {
 data: [
@@ -148,7 +148,7 @@ data: [
 ]
 }
 ```
-```POST /api/urgencias/donate```
+```POST /api/business/donate```
 ```json
 {
 data: {
@@ -159,24 +159,26 @@ data: {
 }
 }
 ```
-```GET /api/banks/bylocbtype/:lat/:long/:btype```
+```GET /api/bank/:lat/:long/:btype```
 ```json
 {
 success: true,
 data: [
 {
   "idBank": "03j2d823jdsd",
+  "name": "Bad Blood",
   "quantity": 15
 }
 ]
 }
 ```
-```GET /api/banks/:idBank```
+```GET /api/bank/:idBank```
 ```json
 {
 success: true,
 data: {
   "idBank":"80e37ehj3e3d",
+  "name": "Bad Blood",
   "geo": {
     "lat":-8.182812,
     "lon":-78.288323

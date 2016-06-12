@@ -1,5 +1,6 @@
-import mongoose from 'mongoose';
 import GeoJSON from 'mongoose-geojson-schema';
+import mongoose from 'mongoose';
+
 var types = mongoose.Schema.Types;
 var oschema = new mongoose.Schema({
     info: {
@@ -21,4 +22,4 @@ var oschema = new mongoose.Schema({
         }
     ]
 });
-export default oschema;
+export default mongoose.model('Banks', oschema);
