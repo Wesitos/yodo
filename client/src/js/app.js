@@ -2,11 +2,11 @@
 var angular = require('angular');
 var myApp = angular.module('yodonanteApp', ['ngMaterial', 'ui.router', 'md.data.table']);
 
-require('./src/js/donator');
-require('./src/js/login');
-require('./src/js/admin/donation');
-require('./src/js/admin/urgency');
-require('./src/js/urgency');
+require('donator/');
+require('login/');
+require('urgency/');
+require('admin/urgency/');
+require('admin/donation/');
 
 myApp.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider) {
 
