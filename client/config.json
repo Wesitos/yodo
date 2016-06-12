@@ -6,7 +6,7 @@
     "plugin": []
   },
   "html":{
-    "src": "src/html",
+    "src": "src/templates",
     "build": "dist/",
     "extname": "html"
   },
@@ -26,6 +26,9 @@
   },
   "vendor": {
     "require": [
+      'angular-material',
+      'angular-ui-router',
+      'angular-material-data-table'
     ],
     "build": {
       "dirname": "dist/js/",

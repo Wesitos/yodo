@@ -1,0 +1,60 @@
+<md-content flex layout-padding class="wrapper-content">
+	<h2>Registro de Donaciones</h2>
+	
+	<form name="form" ng-submit="vm.createDonation(form)" novalidate>
+		
+		<div layout-gt-sm="row" layout="row">
+	      	<md-input-container class="md-block" flex-gt-sm>
+		        <label>DNI Donante</label>
+		        <input type="text" ng-model="vm.donation.dni_donante" required>
+	      	</md-input-container>
+	      	<md-input-container class="md-block" flex-gt-sm>
+	        	<label>Cantidad</label>
+	        	<input type="number" ng-model="vm.donation.quantity" required>
+	      	</md-input-container>
+	    </div>    
+
+	    <div layout-gt-sm="row" layout="row">
+	      	<md-input-container class="md-block" flex-gt-sm>
+		        <label>DNI Paciente (Opcional)</label>
+			    <input type="text" ng-model="vm.donation.dni_donante" required>
+	      	</md-input-container>
+	      	<md-input-container class="md-block" flex-gt-sm>
+	        	<label>Fecha Donación</label>
+	        	<input type="date" ng-model="vm.donation.date" required>
+	      	</md-input-container>
+	    </div>
+	    
+		<md-button class="md-raised md-primary" type="submit">Registrar</md-button>
+		
+    </form>
+
+    <md-toolbar class="md-table-toolbar md-default">
+	  	<div class="md-toolbar-tools">
+	    	<span>Lista de Donaciones</span>
+	  	</div>
+	</md-toolbar>
+
+	<!-- exact table from live demo -->
+	<md-table-container>
+	  <table md-table md-row-select multiple md-progress="promise">
+	    <thead md-head>
+	      <tr md-row>
+	        <th md-column><span>DNI Donante</span></th>
+	        <th md-column><span>Cantidad</span></th>
+	        <th md-column>DNI Paciente</th>
+	        <th md-column>Fecha Donación</th>
+	      </tr>
+	    </thead>
+	    <tbody md-body>
+	      <tr md-row ng-repeat="donation in vm.list">
+	        <td md-cell>{{donation.dni_donante}}</td>
+	        <td md-cell>{{donation.quantity}}</td>
+	        <td md-cell>{{donation.dni_donante}}</td>
+	        <td md-cell>{{donation.date | date:'dd-MM-yyyy' }}</td>
+	      </tr>
+	    </tbody>
+	  </table>
+	</md-table-container>
+
+</md-content>

@@ -1,0 +1,96 @@
+<md-content flex layout-padding class="wrapper-content">
+	<h2>Registro de Urgencias</h2>
+	
+	<form name="form" ng-submit="vm.createUrgency(form)" novalidate>
+		
+		<div layout-gt-sm="row" layout="row">
+	      	<md-input-container class="md-block" flex-gt-sm>
+		        <md-select ng-model="vm.urgency.tipo" style="width: 100%">
+		            <md-option value="">
+		              Seleccione Tipo de Sangre
+		            </md-option>
+		            <md-option value="-">
+		              No Conoce
+		            </md-option>
+		            <md-option  value="O-">
+		              O-
+		            </md-option>
+		            <md-option  value="O+">
+		              O+
+		            </md-option>
+		            <md-option value="A-">
+		              A-
+		            </md-option>
+		            <md-option value="A+">
+		              A+
+		            </md-option>
+		            <md-option value="B-">
+		              B-
+		            </md-option>
+		            <md-option value="B+">
+		              B+
+		            </md-option>
+		            <md-option value="AB-">
+		              AB-
+		            </md-option>
+		            <md-option value="AB+">
+		              AB+
+		            </md-option>
+		            
+		        </md-select>
+	      	</md-input-container>
+	      	<md-input-container class="md-block" flex-gt-sm>
+	        	<label>Cantidad</label>
+	        	<input type="number" ng-model="vm.urgency.quantity" required>
+	      	</md-input-container>
+	    </div>    
+
+	    <div layout-gt-sm="row" layout="column">
+	      	<md-input-container class="md-block" flex-gt-sm>
+		        <label>DNI Paciente</label>
+		        <input type="text" ng-model="vm.urgency.dni" required>
+	      	</md-input-container>
+	      	<md-input-container class="md-block" flex-gt-sm>
+	        	<label>Fecha Límite Prioridad</label>
+	        	<input type="date" ng-model="vm.urgency.date" required>
+	      	</md-input-container>
+	    </div>
+
+	    <md-input-container class="md-block" flex-gt-sm>
+        	<label>Comentario</label>
+        	<input type="text" ng-model="vm.urgency.quantity" required>
+      	</md-input-container>
+	    
+		<md-button class="md-raised md-primary" type="submit">Registrar</md-button>
+		
+    </form>
+
+    <md-toolbar class="md-table-toolbar md-default">
+	  	<div class="md-toolbar-tools">
+	    	<span>Lista de Urgencias</span>
+	  	</div>
+	</md-toolbar>
+
+	<!-- exact table from live demo -->
+	<md-table-container>
+	  <table md-table md-row-select multiple md-progress="promise">
+	    <thead md-head>
+	      <tr md-row>
+	        <th md-column><span>Unidades</span></th>
+	        <th md-column><span>Typo de Sangre</span></th>
+	        <th md-column>DNI Paciente</th>
+	        <th md-column>Prioridad</th>
+	      </tr>
+	    </thead>
+	    <tbody md-body>
+	      <tr md-row ng-repeat="urgency in vm.list">
+	        <td md-cell>{{urgency.unit}}</td>
+	        <td md-cell>{{urgency.type}}</td>
+	        <td md-cell>{{urgency.dni}}</td>
+	        <td md-cell>{{urgency.priority | date:'dd-MM-yyyy' }}</td>
+	      </tr>
+	    </tbody>
+	  </table>
+	</md-table-container>
+
+</md-content>

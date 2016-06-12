@@ -1,0 +1,70 @@
+<md-content flex layout-padding class="wrapper-content" >
+	<h2>Lista Urgencias</h2>
+	
+	<div layout-gt-sm="row">
+
+		<div layout-gt-sm="row" layout="column">
+			<form>
+		        <md-select ng-model="vm.search.tipo" style="width: 50%">
+		            <md-option value="">
+		              	Seleccione Tipo de Sangre
+		            </md-option>
+		            <md-option value="-">
+		              No Conoce
+		            </md-option>
+		            <md-option  value="O-">
+		              O-
+		            </md-option>
+		            <md-option  value="O+">
+		              O+
+		            </md-option>
+		            <md-option value="A-">
+		              A-
+		            </md-option>
+		            <md-option value="A+">
+		              A+
+		            </md-option>
+		            <md-option value="B-">
+		              B-
+		            </md-option>
+		            <md-option value="B+">
+		              B+
+		            </md-option>
+		            <md-option value="AB-">
+		              AB-
+		            </md-option>
+		            <md-option value="AB+">
+		              AB+
+		            </md-option>
+		            
+		        </md-select> 
+
+		        <md-input-container class="md-block" flex-gt-sm>	                  
+		            <input id="searchTextField" type="text" size="50" style="height: 88%;" required>  
+		       	</md-input-container>    
+
+		       	<md-button class="md-raised md-primary" type="submit" ng-click="vm.searchUrgency()">Buscar</md-button>
+	       	</form>
+	    </div>     
+    </div>
+    
+    
+
+	<div layout-xs="row" layout="row" ng-repeat="urgency in vm.listUrgencies">
+		
+		<md-card>
+	        <img ng-src="{{urgency.image}}" class="md-card-image" alt="Washed Out">
+	        <md-card-title>
+	          <md-card-title-text>
+	            <span class="md-headline">{{urgency.name}}</span>
+	          </md-card-title-text>
+	        </md-card-title>
+	        <md-card-content>
+	          <p>
+	            Este centro de salud necesita {{urgency.unit}} unidades de tu tipo de sangre.
+	          </p>
+	          <md-button>Ver detalle</md-button>
+	        </md-card-content>
+	    </md-card>
+	</div>
+</md-content>
