@@ -15,5 +15,16 @@ app.use(compression());
 
 app.use(parseJWT);
 
+//Routes
+
+import donator from './controllers/donator.js';
+import receptor from './controllers/receptor.js';
+import bank from './controllers/bank.js';
+import login from './controllers/login.js';
+
+app.use('/api/donator', donator);
+app.use('/api/receptor', receptor);
+app.use('/api/login', login);
+
 
 export default app;

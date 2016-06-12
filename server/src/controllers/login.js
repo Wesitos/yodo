@@ -46,3 +46,5 @@ router.post('/', function(req, res){
       }
     });
 });
+
+export default router;
