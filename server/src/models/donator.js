@@ -3,6 +3,7 @@ var types = mongoose.Schema.Types;
 
 var oschema = new mongoose.Schema({
   dni: {type: types.String, index: true},
+  password: types.String,
   info: {
     names: types.String,
     lastNames: types.String,
