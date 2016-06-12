@@ -24,7 +24,9 @@
     "require": [
       "angular-material",
       "angular-ui-router",
-      "angular-material-data-table"
+      "angular-material-data-table",
+      "angular-aria",
+      "angular-animate"
     ],
     "build": {
       "dirname": "dist/js/",
