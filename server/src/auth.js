@@ -10,5 +10,8 @@ export const parseJWT = parse({secret: publicKey});
 export function signJWT(payload){
   return jwt.sign(payload, privateKey, {
     algorith: 'RS256',
+    getToken: function(req){
+      return req.cookies.token || null;
+    }
   });
 }

@@ -5,9 +5,7 @@ export default function(){
       HOST = env.DB_HOST,
       PORT = env.DB_PORT,
       DB = env.DB_DB,
-      USER = env.DB_USER || "",
-      PASS = env.DB_PASS || "",
-      uri = `mongodb://${USER}:${PASS}@${HOST}:${PORT}/${DB}`;
+      uri = `mongodb://${HOST}:${PORT}/${DB}`;
   return mongoose.connect(uri);
 }
 
