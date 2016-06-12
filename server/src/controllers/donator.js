@@ -1,5 +1,5 @@
 import {Router} from 'express';
-import crypto from 'bcrypt';
+import crypto from 'crypto';
 import {verifyAddress} from '../utils/smtp.js';
 import donatorModel from '../models/donator.js';
 import sanitize from 'mongo-sanitize';
