@@ -6,8 +6,7 @@ var sourcemaps = require('gulp-sourcemaps');
 
 var production = process.env.NODE_ENV === 'production';
 var stylesConf = require('../config.json').styles;
-var sassGlob = path.join(stylesConf.sass.src, '**',
-                         ['*.', stylesConf.sass.extname].join(''));
+var sassGlob = stylesConf.sass.src;
 
 var sassOpts = {
   includePaths: stylesConf.sass.includePaths || [],
