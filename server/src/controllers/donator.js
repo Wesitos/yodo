@@ -90,7 +90,7 @@ router.post('/', function(req, res){
       return genSalt();
     })
     .then(function(salt){
-      return hash(req.body.data.password,salt);
+      return hash(req.body.data.password ||'', salt);
     })
     .then(function(hashed){
         //if (err) return res.status(500).send('Internal error 1');
