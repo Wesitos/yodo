@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Wesitos/yodo#readme",
   "dependencies": {
+    "babel-polyfill": "^6.9.1",
     "body-parser": "^1.15.1",
     "compression": "^1.6.2",
     "cookie-parser": "^1.4.3",
@@ -31,11 +32,13 @@
     "mongo-sanitize": "^1.0.0",
     "mongoose": "^4.4.20",
     "mongoose-geojson-schema": "^2.1.1",
+    "morgan": "^1.7.0",
     "nodemailer": "^2.4.2",
     "passport": "^0.3.2",
     "passport-jwt": "^2.0.0",
     "pug": "^2.0.0-beta3",
-    "twilio": "^2.9.1"
+    "twilio": "^2.9.1",
+    "winston": "^2.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.10.1",
