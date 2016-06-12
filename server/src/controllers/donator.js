@@ -1,8 +1,15 @@
 import {Router} from 'express';
 import crypto from 'crypto';
+import bcrypt from 'bcrypt';
 import {verifyAddress} from '../utils/smtp.js';
 import donatorModel from '../models/donator.js';
 import sanitize from 'mongo-sanitize';
+import Promise from 'bluebird';
+
+const genSalt = Promise.promisify(bcrypt.genSalt);
+const hash = Promise.promisify(bcrypt.hash);
+
+const randomBytes = Promise.promisify(crypto.randomBytes);
 
 const router = Router();
 
@@ -76,15 +83,25 @@ router.get('/byemail/:email', function(req, res){
     });
 });
 router.post('/', function(req, res){
-    crypto.randomBytes(48, function(err, buffer){
-        if (err) return res.status(500).send('Internal error');
+  var codeBuff;
+  randomBytes(24)
+    .then(function(buffer){
+      codeBuff = buffer;
+      return genSalt();
+    })
+    .then(function(salt){
+      return hash(req.body.data.password,salt);
+    })
+    .then(function(hashed){
+        //if (err) return res.status(500).send('Internal error 1');
         var donator = new donatorModel({
-            info: req.body.data.info,
+          info: req.body.data.info,
+          password: hashed,
             contact: {
                 email: {
                     value: req.body.data.contact.email.value,
                     verified: false,
-                    code: buffer.toString('hex')
+                    code: codeBuff.toString('hex')
                 },
                 telephone: {
                     value: req.body.data.contact.telephone.value,
@@ -98,31 +115,30 @@ router.post('/', function(req, res){
                 verified: false
             }
         });
-      donator.save(function(err2, dat){
-          if(err2) return res.status(500).send('Internal error');
-            var ret = {
-                success: true,
-                data: {
-                    id: dat._id,
-                    info: dat.info,
-                    contact: {
-                        email: {
-                            value: dat.contact.email.value,
-                            verified: false
-                        },
-                        telephone: {
-                            value: dat.contact.telephone.value,
-                            verified: false
-                        }
-                    }
-                }
-            };
-            verifyAddress(ret.data);
-            res.status(200).jsonp(ret);
-            return 1;
-      });
-        return 1;
-    });
+    return donator.save();
+  }).then(function(dat){
+    //if(err) return res.status(500).send('Internal error 2');
+    var ret = {
+      success: true,
+      data: {
+        id: dat._id,
+        info: dat.info,
+        contact: {
+          email: {
+            value: dat.contact.email.value,
+            verified: false
+          },
+          telephone: {
+            value: dat.contact.telephone.value,
+            verified: false
+          }
+        }
+      }
+    };
+    verifyAddress(ret.data);
+    res.status(200).jsonp(ret);
+    return 1;
+  });
 });
 router.put('/info/:id', function(req, res){
     donatorModel.findById(req.params.id, function(err, dat){
