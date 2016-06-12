@@ -14,10 +14,9 @@
 		return service;
 
 		function createDonator(donator){
-			console.log(donator);
 	    	return $http({
 				method: 'POST',
-				url: 'http://10.100.72.137:9000/api/donator',
+				url: '/api/donator',
 				data: {
 					data: {
 					    info: {

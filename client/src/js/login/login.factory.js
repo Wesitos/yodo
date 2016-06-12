@@ -8,7 +8,8 @@
 
 	function LoginFactory($http, $q) {		
 		var service = {
-			login: login
+			login: login,
+			_login: _login
 		};
 
 		return service;
@@ -17,7 +18,7 @@
 			console.log(login);
 	    	return $http({
 				method: 'GET',
-				url: '',
+				url: '/api/login',
 				responseType: "json"			  
 			});
 		}

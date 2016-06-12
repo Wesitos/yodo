@@ -17,7 +17,7 @@
 			console.log(urgency);
 	    	return $http({
 				method: 'GET',
-				url: '',
+				url: '/api/urgency',
 				responseType: "json"			  
 			});
 		}

@@ -14,10 +14,11 @@
 
 		return service;
 
-		function createDonation(urgency){			
+		function createDonation(donation){			
 	    	return $http({
-				method: 'GET',
-				url: '',
+				method: 'POST',
+				url: '/api/donation',
+				data: {data: donation}
 				responseType: "json"			  
 			});
 		}

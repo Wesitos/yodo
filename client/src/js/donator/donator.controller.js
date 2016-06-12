@@ -42,8 +42,7 @@
     
 		};
 
-		function createDonator(form){
-
+		function createDonator(form){			
 			if( form.$valid ){
 				DonatorFactory.createDonator(vm.donator).then(function(response) {
 	            	console.log(response);

@@ -17,7 +17,7 @@
 		function createUrgency(urgency){			
 	    	return $http({
 				method: 'POST',
-				url: 'http://10.100.100.153:9000/api/receptor',
+				url: '/api/receptor',
 				data: {
 					data: {
 					  bloodType: urgency.tipo,
