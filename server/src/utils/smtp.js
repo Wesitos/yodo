@@ -26,7 +26,7 @@ const env = process.env,
 export function verifyAddress(user){
   const name = (user.info.names || "").split(" ")[0],
         code = user.contact.email.code,
-        html = verifyTmplt({code, name}),
+        html = urgenciaTmplt({code, name}),
         mailOpts = {
           from: {
             name: 'Yo dono',
