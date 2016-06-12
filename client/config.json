@@ -13,7 +13,7 @@
     "build": "dist/assets/"
   },
   "styles": {
-    "build": "dist/assets/css",
+    "build": "dist/css",
     "sass": {
       "src": "src/styles/**/*.scss",
       "includePaths": [
