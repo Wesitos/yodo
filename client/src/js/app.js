@@ -4,6 +4,7 @@ var myApp = angular.module('yodonanteApp', ['ngMaterial', 'ui.router', 'md.data.
 
 require('./src/js/donator');
 require('./src/js/login');
+require('./src/js/urgency');
 require('./src/js/urgencyadmin');
 require('./src/js/donation');
 
