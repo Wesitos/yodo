@@ -85,3 +85,7 @@ flycheck_*.el
 
 #Env file
 .env
+
+# jwt keys
+jwt_key
+jwt_key.pub
