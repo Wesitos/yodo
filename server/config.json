@@ -1,0 +1,11 @@
+{
+  "js": {
+    "src": "src/**/*.js",
+    "build": "dist/",
+    "plugin": []
+  },
+  "pug":{
+    "src": "src/**/*.pug",
+    "build": "dist/"
+  }
+}

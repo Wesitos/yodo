@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "babel src/ --out-dir dist",
-    "watch": "babel src/ --out-dir dist --source-maps --watch",
+    "dev": "gulp watch",
     "start": "node --require 'dotenv/config' dist/index.js"
   },
   "repository": {
@@ -28,11 +28,18 @@
     "mongoose-geojson-schema": "^2.1.1",
     "nodemailer": "^2.4.2",
     "passport": "^0.3.2",
+    "pug": "^2.0.0-beta3",
     "twilio": "^2.9.1"
   },
   "devDependencies": {
     "babel-cli": "^6.10.1",
     "babel-preset-modern-node": "^2.1.0",
-    "babel-preset-stage-0": "^6.5.0"
+    "babel-preset-stage-0": "^6.5.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-util": "^3.0.7",
+    "run-sequence": "^1.2.1"
   }
 }
