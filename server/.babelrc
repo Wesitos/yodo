@@ -1,0 +1,7 @@
+{
+  "presets": [
+  'modern-node/6.2',
+  'stage-0'
+  ]
+}
+
