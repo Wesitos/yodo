@@ -14,8 +14,9 @@
 			lastname: 'Coronel Flores',
 			telephone: 940371198,
 			email: 'Salvador2489@gmail.com',
-			tipo: 'O-',
-			location: 'lima'
+			type: 'O-',
+			location: 'lima',
+			gender: 'M'
 		};
 		vm.createDonator = createDonator;
 

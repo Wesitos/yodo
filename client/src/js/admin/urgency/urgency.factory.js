@@ -16,8 +16,17 @@
 
 		function createUrgency(urgency){			
 	    	return $http({
-				method: 'GET',
-				url: '',
+				method: 'POST',
+				url: 'http://10.100.100.153:9000/api/receptor',
+				data: {
+					data: {
+					  bloodType: urgency.tipo,
+					  quantity: urgency.quantity,
+					  bloodBank: "adbhjhfye3743ji3gd",
+					  deadLine: "2016-06-12",
+					  dni: urgency.dni
+					}
+				},
 				responseType: "json"		  
 			});
 		}
@@ -31,24 +40,24 @@
         		urgencies = [
 					{
 					 	_id: '0001',
-					 	unit: 3,
+					 	quantity: 3,
 					 	type: 'O-',
-					 	dni: 46200966,
+					 	dni: "46200966",
 					 	priority: new Date()
 					},
 					{
 					 	_id: '0002',
-					 	unit: 4,
+					 	quantity: 4,
 					 	type: 'A+',
-					 	dni: 46200966,
-					 	priority: new Date()
+					 	dni: "72888191",
+					 	priority: (new Date ).setDate( (new Date()).getDate() + 6 )
 					},
 					{
 					 	_id: '0003',
-					 	unit: 5,
+					 	quantity: 5,
 					 	type: 'A-',
-					 	dni: 46200966,
-					 	priority: new Date()
+					 	dni: "07543329",
+					 	priority: (new Date ).setDate( (new Date()).getDate() + 12 )
 					}
 				];
 				

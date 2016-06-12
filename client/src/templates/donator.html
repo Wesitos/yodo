@@ -25,7 +25,7 @@
 	    </div>
 	    
 	    <div layout-gt-sm="row" layout="row">
-	        <md-select ng-model="vm.donator.tipo" style="width: 100%">
+	        <md-select ng-model="vm.donator.type" style="width: 100%">
 	            <md-option value="">
 	              Seleccione Tipo de Sangre
 	            </md-option>
@@ -60,14 +60,26 @@
 	        </md-select>          
 	    </div>
 
-	    <div layout-gt-sm="row">
+	    <div layout-gt-sm="row" layout="column">
 	        <md-input-container class="md-block" flex-gt-sm>	                  
 	            <input id="searchTextField" type="text" size="50" required>  
 	       	</md-input-container>
+	       	<md-input-container class="md-block" flex-gt-sm>
+	       		<md-select ng-model="vm.donator.gender" style="width: 100%">
+		            <md-option value="">
+		              Sexo
+		            </md-option>
+		            <md-option value="M">
+		              M
+		            </md-option>
+		            <md-option value="F">
+		              F
+		            </md-option>
+	            </md-select>
+	      	</md-input-container>
 	    </div>
 	    
-	    <md-button class="md-raised md-primary" type="submit">Regístrate</md-button>
-		
+	    <md-button class="md-raised md-primary" type="submit">Regístrate</md-button>		
 		
     </form>
 

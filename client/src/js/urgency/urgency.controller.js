@@ -10,7 +10,7 @@
 		var input = document.getElementById('searchTextField');
 		var vm = this;
 		vm.search = {
-			tipo: '',
+			type: '',
 			location: 'lima'
 		};
 
@@ -56,7 +56,6 @@
 		};
 
 		function searchUrgency(){
-			console.log('sdfadsf');
 			UrgencyFactory.searchUrgency(vm.search).then(function(response) {
             	console.log(response);
             	vm.listUrgencies = response;

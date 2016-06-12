@@ -5,7 +5,7 @@
 		
 		<div layout-gt-sm="row" layout="row">
 	      	<md-input-container class="md-block" flex-gt-sm>
-		        <md-select ng-model="vm.urgency.tipo" style="width: 100%">
+		        <md-select ng-model="vm.urgency.type" style="width: 100%">
 		            <md-option value="">
 		              Seleccione Tipo de Sangre
 		            </md-option>
@@ -52,13 +52,13 @@
 	      	</md-input-container>
 	      	<md-input-container class="md-block" flex-gt-sm>
 	        	<label>Fecha Límite Prioridad</label>
-	        	<input type="date" ng-model="vm.urgency.date" required>
+	        	<input type="date" ng-model="vm.urgency.priority" required>
 	      	</md-input-container>
 	    </div>
 
 	    <md-input-container class="md-block" flex-gt-sm>
         	<label>Comentario</label>
-        	<input type="text" ng-model="vm.urgency.quantity" required>
+        	<input type="text" ng-model="vm.urgency.comment" required>
       	</md-input-container>
 	    
 		<md-button class="md-raised md-primary" type="submit">Registrar</md-button>
@@ -83,8 +83,8 @@
 	      </tr>
 	    </thead>
 	    <tbody md-body>
-	      <tr md-row ng-repeat="urgency in vm.list">
-	        <td md-cell>{{urgency.unit}}</td>
+	      <tr md-row ng-repeat="urgency in vm.list track by $index">
+	        <td md-cell>{{urgency.quantity}}</td>
 	        <td md-cell>{{urgency.type}}</td>
 	        <td md-cell>{{urgency.dni}}</td>
 	        <td md-cell>{{urgency.priority | date:'dd-MM-yyyy' }}</td>

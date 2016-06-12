@@ -5,7 +5,7 @@
 
 		<div layout-gt-sm="row" layout="column">
 			<form>
-		        <md-select ng-model="vm.search.tipo" style="width: 50%">
+		        <md-select ng-model="vm.search.type" style="width: 50%">
 		            <md-option value="">
 		              	Seleccione Tipo de Sangre
 		            </md-option>
@@ -50,7 +50,7 @@
     
     
 
-	<div layout-xs="row" layout="row" ng-repeat="urgency in vm.listUrgencies">
+	<div layout-xs="row" layout="row" ng-repeat="urgency in vm.listUrgencies" ng-if="urgency.state">
 		
 		<md-card>
 	        <img ng-src="{{urgency.image}}" class="md-card-image" alt="Washed Out">

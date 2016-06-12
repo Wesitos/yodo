@@ -10,10 +10,10 @@
 		
 		var vm = this;
 		vm.urgency = {
-			tipo: 'O-',
+			type: 'O-',
 			quantity: 2,
 			dni: '46200966',
-			date: new Date(),
+			priority: new Date(),
 			comment: 'Ayudo a niña con cáncer'
 		};
 
@@ -36,15 +36,17 @@
 		}
 
 		function createUrgency(form){
-			console.log(vm.urgency.date.getDate());
+			//console.log(vm.urgency.date.getDate());
 			if( form.$valid ){
 				UrgencyAdminFactory.createUrgency(vm.urgency).then(function(response) {
 	            	console.log(response);            	
 	            	//$state.go('urgency');
+	            	vm.list.push(vm.urgency);
 		        });
 			}else{
 				console.log('no validate form')
 			}
+			
 		}
 	};
 })();
