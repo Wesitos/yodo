@@ -82,12 +82,12 @@ router.post('/', function(req, res){
             info: req.body.info,
             contact: {
                 email: {
-                    value: req.body.contact.email.value,
+                    value: req.body.data.contact.email.value,
                     verified: false,
                     code: buffer.toString('hex')
                 },
                 telephone: {
-                    value: req.body.contact.telephone.value,
+                    value: req.body.data.contact.telephone.value,
                     verified: false,
                     code: null
                 }
