@@ -5,7 +5,7 @@ import {verifyAddress} from '../utils/smtp.js';
 import donatorModel from '../models/donator.js';
 var router = express.Router();
 
-router.get('/donator/bydni/:dni',function(req, res){
+router.get('/bydni/:dni',function(req, res){
     donatorModel.findOne({dni: req.params.dni}, function(err, dat){
         if(err) return res.send(500,'Internal Server Error');
         if (dat===null){
@@ -74,7 +74,7 @@ router.get('/byemail/:email', function(req, res){
         return 1;
     });
 });
-router.post('/donator', function(req, res){
+router.post('/', function(req, res){
     crypto.randomBytes(48, function(err, buffer){
         if (err) return res.send(500, 'Internal error');
         var donator = new donatorModel({
@@ -123,3 +123,18 @@ router.post('/donator', function(req, res){
         return 1;
     });
 });
+router.put('/:id', function(req, res){
+    donatorModel.findById(req.params.id, function(err, dat){
+        if (err) return res.send(500,'Internal error');
+        if(dat===null){
+            if (err) return res.send(404,'Not found');
+        }else{
+            dat.dni = req.body.data.dni;
+            dat.info = req.body.data.info;
+
+        }
+        return 1;
+    });
+});
+
+export default router;
