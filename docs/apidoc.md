@@ -89,14 +89,16 @@
 ```
 ```POST /api/urgencias/add```
 ```json
-[{
+[
+{
   "bloodType": "AB+",
   "quantity": 5,
   "bloodBank": "adbhjhfye3743ji3gd",
   "user": "abajbjas93rk3j3fdd",
   "deadLine": "2016-06-06",
   "history":[] 
-}]
+}
+]
 ```
 ```POST /api/urgencias/donate```
 ```json
@@ -107,3 +109,22 @@
   "idUser": "8728jdw982323e2"
 }
 ```
+```GET /api/banks/:lat/:long/:btype```
+```json
+[
+{
+  "idBank": "03j2d823jdsd",
+  "quantity": 15
+}
+]
+```
+```GET /api/banks/:idBank```
+```json
+{
+  "idBank":"80e37ehj3e3d",
+  "geo": {
+    "lat":-8.182812,
+    "lon":-78.288323
+  },
+  "quantity":15
+}
