@@ -6,7 +6,7 @@ const ACCOUNT_SID = process.env.TWILIO_ACCOUNT_SID,
       client = twilio(ACCOUNT_SID, AUTH_TOKEN);
 
 export function verifyNumber(number, code){
-  const msg = `Tu codigo de verificacion es: ${code}`;
+  const msg = `Tu codigo de verificacion para "Yo dono" es: ${code}`;
   return sendSMS(number, msg);
 }
 
