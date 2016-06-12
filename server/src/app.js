@@ -42,6 +42,6 @@ app.use('/api/receptor', receptor);
 app.use('/api/login', login);
 app.use('/api/logout', logout);
 
-app.use(express.static('../../client/dist'));
+app.use(express.static('../client/dist'));
 
 export default app;
