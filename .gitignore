@@ -81,3 +81,6 @@ flycheck_*.el
 
 # projectiles files
 .projectile
+
+#Env file
+.env
