@@ -6,7 +6,7 @@ import sanitize from 'mongo-sanitize';
 
 const router = Router();
 
-router.get('/bydni/:dni',function(req, res){
+router.get('/bydni/:dni', function(req, res){
     donatorModel.findOne({dni: req.params.dni}, function(err, dat){
         if(err) return res.send(500,'Internal Server Error');
         if (dat===null){

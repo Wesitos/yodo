@@ -217,18 +217,31 @@ data: [{
 }
 ```
 ```POST /api/receptor```
+Request
 ```json
 {
-data: [
-{
+data: {
   "bloodType": "AB+",
   "quantity": 5,
   "bloodBank": "adbhjhfye3743ji3gd",
-  "user": "abajbjas93rk3j3fdd",
-  "deadLine": "2016-06-06",
-  "history":[] 
+  "deadLine": "2016-06-06"
 }
-]
+}
+```
+Response
+```json
+{
+success: true,
+data: {
+  "id": "jhr38rk3r384434f",
+  "bloodType": "AB+",
+  "quantity": 5,
+  "bloodBank": "adbhjhfye3743ji3gd",
+  "deadLine": "2016-06-06"
+  "history":[],
+  "left": 5,
+  "active": true
+}
 }
 ```
 ```POST /api/business/donate```

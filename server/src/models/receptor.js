@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 var types = mongoose.Schema.Types;
 
 var oschema = new mongoose.Schema({
+  dni: types.String,
   bloodType: {
     type: types.String,
     enum: ['O-','O+','A-','A+','B-','B+','AB-','AB+'],
