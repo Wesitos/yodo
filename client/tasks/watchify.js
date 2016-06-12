@@ -12,8 +12,7 @@ var config = require("../config");
 var browserifyConfig = config.browserify;
 var vendorConfig = config.vendor;
 
-var browserifyGlob = path.join(browserifyConfig.src, "**",
-                               ["*", browserifyConfig.extname].join("."));
+var browserifyGlob = browserifyConfig.src;
 var production = process.env.NODE_ENV === 'production';
 
 var logger = gutil.log.bind(undefined,

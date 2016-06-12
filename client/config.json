@@ -1,24 +1,21 @@
 {
   "browserify": {
-    "src": "src/js/",
-    "extname": "js",
+    "src": "src/js/app.js",
     "build": "dist/js/",
     "plugin": []
   },
   "html":{
-    "src": "src/templates",
-    "build": "dist/",
-    "extname": "html"
+    "src": "src/templates/**/*.html",
+    "build": "dist/"
   },
   "media":{
-    "src": "src/media",
-    "build": "dist/media/"
+    "src": "src/assets/**/*",
+    "build": "dist/assets/"
   },
   "styles": {
-    "build": "dist/css",
+    "build": "dist/assets/css",
     "sass": {
-      "src": "src/styles",
-      "extname": "scss",
+      "src": "src/styles/**/*.scss",
       "includePaths": [
         "node_modules/materialize-css/sass"
       ]

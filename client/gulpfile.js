@@ -32,6 +32,7 @@ gulp.task('styles', ['sass']);
 
 gulp.task('build', [
   'browserify',
+  'vendor',
   'styles',
   'postcss',
 ]);
