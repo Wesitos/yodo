@@ -17,7 +17,6 @@
     "sass": {
       "src": "src/styles/**/*.scss",
       "includePaths": [
-        "node_modules/materialize-css/sass"
       ]
     }
   },

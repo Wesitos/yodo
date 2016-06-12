@@ -52,7 +52,8 @@ function bundleOne (b, fileName, updated, updatedFileList){
   else{
     logger(gutil.colors.yellow("watching: "), fileName);
   }
-  var relativePath = path.relative(browserifyConfig.src, fileName);
+  var relativePath = path.relative(path.dirname(browserifyConfig.src),
+                                   fileName);
   var oldExt = path.extname(relativePath);
   var newFileName = path.join(path.dirname(relativePath),
                                 [path.basename(relativePath, oldExt),
