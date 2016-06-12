@@ -202,13 +202,13 @@ router.get('/vermail/:id/:code', function(req, res){
     });
 });
 
-router.post('/vertel/:id/:code', function(req, res){
-    donatorModel.findById(req.params.id, function(err, dat){
+router.post('/vertel', function(req, res){
+    donatorModel.findById(req.user.id, function(err, dat){
         if (err) return res.send(500,'Internal error');
         if(dat===null){
             if (err) return res.send(404,'Not found');
         }else{
-            if(dat.contact.email.code != req.params.code){
+            if(dat.contact.email.code != req.body.data.code){
                 return {
                     success: false,
                     data: null
