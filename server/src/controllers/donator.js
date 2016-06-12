@@ -79,7 +79,7 @@ router.post('/', function(req, res){
     crypto.randomBytes(48, function(err, buffer){
         if (err) return res.status(500).send('Internal error');
         var donator = new donatorModel({
-            info: req.body.info,
+            info: req.body.data.info,
             contact: {
                 email: {
                     value: req.body.data.contact.email.value,
@@ -98,8 +98,8 @@ router.post('/', function(req, res){
                 verified: false
             }
         });
-        donator.save(function(err, dat){
-            if(err) return res.status(500).send('Internal error');
+      donator.save(function(err2, dat){
+          if(err2) return res.status(500).send('Internal error');
             var ret = {
                 success: true,
                 data: {
@@ -120,7 +120,7 @@ router.post('/', function(req, res){
             verifyAddress(ret.data);
             res.status(200).jsonp(ret);
             return 1;
-        });
+      });
         return 1;
     });
 });
@@ -219,7 +219,7 @@ router.post('/vertel', function(req, res){
                 dat.contact.telephone.code = null;
                 dat.save(function(err, dat){
                     if (err) return res.status(500).send('Internal error');
-                    return res.status.(200).send({
+                    return res.status(200).send({
                         success: true,
                         data: {
                             id: dat._id,
