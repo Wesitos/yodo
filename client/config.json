@@ -21,12 +21,12 @@
     }
   },
   "vendor": {
-    "require": [
-      "angular-material",
-      "angular-ui-router",
-      "angular-material-data-table",
+    "require": [      
+      "angular-ui-router",      
       "angular-aria",
-      "angular-animate"
+      "angular-animate",
+      "angular-material",
+      "angular-material-data-table"
     ],
     "build": {
       "dirname": "dist/js/",

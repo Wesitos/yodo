@@ -1,0 +1,84 @@
+<md-content flex layout-padding class="wrapper-content">
+	<h2>Consulta de Donadores</h2>
+	
+	<form name="form" ng-submit="vm.queryDonator(form)" novalidate>
+		
+		<div layout-gt-sm="row" layout="row">
+	      	<md-input-container class="md-block" flex-gt-sm>
+		        <label>DNI Donante</label>
+		        <input type="text" ng-model="vm.query.dni" required>
+	      	</md-input-container>
+	      	<md-input-container class="md-block" flex-gt-sm>
+	        	<label>Email</label>
+	        	<input type="email" ng-model="vm.query.email" required>
+	      	</md-input-container>
+	    </div>
+
+	    <div layout="row">
+	    	<md-button class="md-raised md-primary">Consultar</md-button>
+	    	<md-button ng-disabled="true" class="md-raised md-primary">Última Fecha que donó: 00-00-0000</md-button>	    	
+	    </div>		
+	    <br><br>
+
+		<div layout-gt-sm="row" layout="column">
+	      	<md-input-container class="md-block" flex-gt-sm>
+		        <label>Nombres</label>
+		        <input type="text" ng-model="vm.donator.firstname" required>
+	      	</md-input-container>
+	      	<md-input-container class="md-block" flex-gt-sm>
+	        	<label>Apellidos</label>
+	        	<input type="text" ng-model="vm.donator.lastname" required>
+	      	</md-input-container>
+	    </div>
+
+	    <div layout-gt-sm="row" layout="column">
+	      	<md-input-container class="md-block" flex-gt-sm>
+		        <label>Celular</label>
+		        <input type="text" ng-model="vm.donator.telephone" required>
+	      	</md-input-container>
+	      	<md-input-container class="md-block" flex-gt-sm>
+	        	<label>Email</label>
+	        	<input type="email" ng-model="vm.donator.email" required>
+	      	</md-input-container>
+	    </div>
+	    
+	    <div layout-gt-sm="row" layout="row">
+	        <md-select ng-model="vm.donator.tipo" style="width: 100%">
+	            <md-option value="">
+	              Seleccione Tipo de Sangre
+	            </md-option>
+	            <md-option value="-">
+	              No Conoce
+	            </md-option>
+	            <md-option  value="O-">
+	              O-
+	            </md-option>
+	            <md-option  value="O+">
+	              O+
+	            </md-option>
+	            <md-option value="A-">
+	              A-
+	            </md-option>
+	            <md-option value="A+">
+	              A+
+	            </md-option>
+	            <md-option value="B-">
+	              B-
+	            </md-option>
+	            <md-option value="B+">
+	              B+
+	            </md-option>
+	            <md-option value="AB-">
+	              AB-
+	            </md-option>
+	            <md-option value="AB+">
+	              AB+
+	            </md-option>
+	            
+	        </md-select>          
+	    </div>
+
+		<md-button class="md-raised md-primary" type="submit">Enviar</md-button>
+		
+    </form>
+</md-content>

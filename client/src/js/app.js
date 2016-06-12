@@ -1,13 +1,8 @@
-//var myApp = angular.module('yodonanteApp', ['ngMaterial', 'ui.router', 'md.data.table', 'donator', 'urgency', 'login', 'urgencyadmin', 'donation']);
 var angular = require('angular');
-var myApp = angular.module('yodonanteApp', ['ngMaterial', 'ui.router', 'md.data.table']);
 
-require('./donator/');
-require('./login/');
-require('./urgency/');
-require('./admin/urgency/');
-require('./admin/donation/');
+window.angular = angular;
 
+var myApp = angular.module('yodonanteApp', [require('angular-ui-router'), require('angular-material'), require('angular-material-data-table'), 'donator', 'urgency', 'login', 'urgencyadmin', 'donation', 'querydonator']);
 
 myApp.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider) {
 
@@ -97,5 +92,40 @@ myApp.config(function($stateProvider, $urlRouterProvider, $mdThemingProvider) {
 	      		templateUrl: "./src/templates/admin/header.html"
 	      	}
 	      }
+	    })
+
+	    .state('querydonator', {
+	      url: "/admin/querydonator",
+	      views: {
+	      	'viewcontent':{
+	      		templateUrl: "./src/templates/admin/querydonator.html",
+	      		controller: 'QueryDonatorCtrl',
+	      		controllerAs: 'vm'
+	      	},
+	      	'viewheader':{
+	      		templateUrl: "./src/templates/admin/header.html"
+	      	}
+	      }
+	    })
+
+	    .state('urgencydetail', {
+	      url: "/urgency/detail",
+	      views: {
+	      	'viewcontent':{
+	      		templateUrl: "./src/templates/urgencydetail.html",
+	      		controller: 'UrgencyCtrl',
+	      		controllerAs: 'vm'
+	      	},
+	      	'viewheader':{
+	      		templateUrl: "./src/templates/admin/header.html"
+	      	}
+	      }
 	    });
 	});
+
+require('./donator');
+require('./urgency');
+require('./login');
+require('./admin/donation');
+require('./admin/querydonator');
+require('./admin/urgency');
