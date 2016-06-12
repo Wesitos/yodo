@@ -22,6 +22,7 @@ app.use(cookieParser());
 app.use(compression());
 
 app.use(logger);
+
 /*
 app.use(parseJWT.unless({path: [
   '/api/login',
@@ -41,5 +42,6 @@ app.use('/api/receptor', receptor);
 app.use('/api/login', login);
 app.use('/api/logout', logout);
 
+app.use('/*', express.static('../../client/dist'));
 
 export default app;
