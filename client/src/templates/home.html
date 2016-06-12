@@ -1,26 +1,33 @@
-<div layout="column" ng-cloak>
+<div layout="column" ng-cloak style="width: 80%; margin: 0 auto;">
 	<img style="margin: auto; max-width: 100%;" alt="slide" src="assets/banner.jpg">
 
-	<div class="text-banner">
-		<h2>Qué hacemos</h2>
+	<div class="text-banner text-center" layout-align="center">
+		<h1>¿Qué hacemos?</h1>
 		<p>Conectamos a los donadores voluntarios con los requerimientos de los bancos de sangre de acuerdo a la compatibilidad, localización y disponibilidad y te notificamos sobre las personas impactadas gracias a tu donación.</p>
-
-		<div class="item-1">
+		
+		<div class="item-image">
 			<img src="./src/assets/images/p1.jpg" alt="">
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, quas alias ullam molestias nobis natus fuga odio doloribus? Non sint placeat, ab quia odio, facilis illo quisquam accusamus. Veniam, asperiores!</p>
+			<h2 class="item-title">Registra</h2>
+			<h4>Registra tus datos de contacto</h4>
 		</div>
-		<div class="item-1">
-			<img src="./src/assets/images/p1.jpg" alt="">
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, quas alias ullam molestias nobis natus fuga odio doloribus? Non sint placeat, ab quia odio, facilis illo quisquam accusamus. Veniam, asperiores!</p>
+		<div class="item-image">			
+			<img src="./src/assets/images/p2.jpg" alt="">
+			<h2 class="item-title">Localiza</h2>
+			<h4>El requerimiento más cercano</h4>
 		</div>
-		<div class="item-1">
-			<img src="./src/assets/images/p1.jpg" alt="">
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, quas alias ullam molestias nobis natus fuga odio doloribus? Non sint placeat, ab quia odio, facilis illo quisquam accusamus. Veniam, asperiores!</p>
+		<div class="item-image">
+			
+			<img src="./src/assets/images/p3.jpg" alt="">
+			<h2 class="item-title">Revisa</h2>
+			<h4>Tu historial de donaciones</h4>
 		</div>
 	</div>
 	
+	<span class="card-title"> <code>&lt;user-card&gt;</code> without md-color features</span>
+  	<regular-card name="User name" md-theme="default"></regular-card>
+
 	<md-list  ng-cloak>
-  		<md-subheader class="md-no-sticky"><h1>Requisitos para donar sangre:</h1></md-subheader>
+  		<md-subheader class="md-no-sticky"><h1 class="title-home">Requisitos para donar sangre:</h1></md-subheader>
 	  	<md-list-item >
 	    	<p>1. Ser mayor de dieciocho años y menor de cincuenta y cinco. Los mayores de cincuenta y cinco años pueden donar con autorización expresa del médico responsable del Banco de Sangre. </p>
 	  	</md-list-item>
@@ -35,5 +42,9 @@
 	    	<p>4. Cumplir con los exámenes establecidos.</p>
 	  	</md-list-item>
   	</md-list>
+	
+	<section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+  		<md-button class="md-raised md-primary btn-call-to-action">Regístrate y salva una Vida</md-button>
+  	</section>
 	
 </div>

@@ -13,6 +13,30 @@ md-input-container {
 	box-sizing: border-box;
 }
 
-.content-wrapper-1000{
-	max-width: 1000px;
+.item-image{
+	width: 33.33%;
+	float: left;
+	text-align: center;
+	margin-top: 50px;	
+}
+
+.text-center{
+	text-align: center;
+}
+
+.btn-call-to-action{
+	font-size: 30px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+  	.item-image{
+		width: 100%;
+	}
+
+	.title-home{
+		line-height: 27px;
+	}
+
 }
