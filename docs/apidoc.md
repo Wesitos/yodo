@@ -87,7 +87,7 @@ Response
 }
 ```
 ```
-```PUT /api/donator/:id```
+```PUT /api/donator/info/:id```
 ```json
 {
 success: true,
@@ -114,6 +114,89 @@ data: {
     "bloodType": "AB+",
     "validDonator": true,
     "verified": true
+  }
+}
+}
+```
+```PUT /api/donator/medinfo/:id```
+```json
+{
+success: true,
+data: {
+  "dni": "92740273",
+  "info": {
+    "names": "John Ney",
+    "lastNames": "Smith",
+    "gender": "M",
+    "ubigeo": "150102",
+    "birth": "1985-06-03"
+  },
+  "contact": {
+    "email": {
+      "value": "jneysmith@gmail.com",
+      "verified": true
+    },
+    "telephone": {
+      "verified": true,
+      "value": "2804656"
+    }
+  },
+  "medinfo": {
+    "bloodType": "AB+",
+    "validDonator": true,
+    "verified": true
+  }
+}
+}
+```
+```PUT /api/donator/vermail/:id/:code```
+```json
+{
+success: true,
+data: {
+  "dni": "92740273",
+  "info": {
+    "names": "John Ney",
+    "lastNames": "Smith",
+    "gender": "M",
+    "ubigeo": "150102",
+    "birth": "1985-06-03"
+  },
+  "contact": {
+    "email": {
+      "verified": true,
+      "value": "jnesmith@gmail.com"
+    }
+  }
+}
+}
+```
+```PUT /api/donator/vertel```
+```json
+{
+  data: {
+    code: "hf3u493jkr3j33434d3"
+  }
+}
+```
+Response
+```json
+{
+success: true,
+data: {
+  "dni": "92740273",
+  "info": {
+    "names": "John Ney",
+    "lastNames": "Smith",
+    "gender": "M",
+    "ubigeo": "150102",
+    "birth": "1985-06-03"
+  },
+  "contact": {
+    "telephone": {
+      "verified": true,
+      "value": "2804656"
+    }
   }
 }
 }

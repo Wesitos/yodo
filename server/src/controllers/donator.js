@@ -124,7 +124,7 @@ router.post('/', function(req, res){
         return 1;
     });
 });
-router.put('/:id', function(req, res){
+router.put('/info/:id', function(req, res){
     donatorModel.findById(req.params.id, function(err, dat){
         if (err) return res.send(500,'Internal error');
         if(dat===null){
@@ -132,10 +132,104 @@ router.put('/:id', function(req, res){
         }else{
             dat.dni = req.body.data.dni;
             dat.info = req.body.data.info;
-
+            dat.save(function(err, dat){
+                if (err) return res.send(500,'Internal error');
+                return {
+                    success: true,
+                    data:{
+                        id: dat._id,
+                        dni: dat.dni,
+                        info: dat.info
+                    }
+                };
+            });
+        }
+        return 1;
+    });
+});
+router.put('/medinfo/:id', function(req, res){
+    donatorModel.findById(req.params.id, function(err, dat){
+        if (err) return res.send(500,'Internal error');
+        if(dat===null){
+            if (err) return res.send(404,'Not found');
+        }else{
+            dat.medinfo = req.body.data.medinfo;
+            dat.save(function(err, dat){
+                if (err) return res.send(500,'Internal error');
+                return {
+                    success: true,
+                    data: {
+                        id: dat._id,
+                        dni: dat.dni,
+                        info: dat.info,
+                        medinfo: dat.info
+                    }
+                };
+            });
         }
         return 1;
     });
 });
 
+router.get('/vermail/:id/:code', function(req, res){
+    donatorModel.findById(req.params.id, function(err, dat){
+        if (err) return res.send(500,'Internal error');
+        if(dat===null){
+            if (err) return res.send(404,'Not found');
+        }else{
+            if(dat.contact.email.code != req.params.code){
+                return {
+                    success: false,
+                    data: null
+                };
+            }else{
+                dat.contact.telephone.verified = true;
+                dat.contact.telephone.code = null;
+                dat.save(function(err, dat){
+                    if (err) return res.send(500,'Internal error');
+                    return res.send(200, {
+                        success: true,
+                        data: {
+                            id: dat._id,
+                            dni: dat.dni,
+                            info: dat.info
+                        }
+                    });
+                });
+            }
+        }
+        return 1;
+    });
+});
+
+router.post('/vertel', function(req, res){
+    donatorModel.findById(req.user.id, function(err, dat){
+        if (err) return res.send(500,'Internal error');
+        if(dat===null){
+            if (err) return res.send(404,'Not found');
+        }else{
+            if(dat.contact.email.code != req.body.data.code){
+                return {
+                    success: false,
+                    data: null
+                };
+            }else{
+                dat.contact.telephone.verified = true;
+                dat.contact.telephone.code = null;
+                dat.save(function(err, dat){
+                    if (err) return res.send(500,'Internal error');
+                    return res.send(200, {
+                        success: true,
+                        data: {
+                            id: dat._id,
+                            dni: dat.dni,
+                            info: dat.info
+                        }
+                    });
+                });
+            }
+        }
+        return 1;
+    });
+});
 export default router;
