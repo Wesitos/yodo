@@ -5,7 +5,7 @@ import sanitize from 'mongo-sanitize';
 const router = Router();
 
 router.post('/', function(req, res){
-    var donator = new donatorModel({
+    var receptor = new receptorModel({
         bloodType: req.data.bloodType,
         date: new Date(),
         quantity: req.data.quantity,
@@ -16,7 +16,7 @@ router.post('/', function(req, res){
         left: req.data.quantity,
         active: true
     });
-    donator.save(function(err,dat){
+    receptor.save(function(err,dat){
         if(err) return res.send(500,'Internal error');
         var ret = {
             success: true,
@@ -33,9 +33,6 @@ router.post('/', function(req, res){
         };
         return 1;
     });
-});
-router.get('/bybank/:dni', function(req, res){
-    receptorModel.find({dni: req.params.dni, bloodBank: req.user.bankId})
 });
 
 export default router;
