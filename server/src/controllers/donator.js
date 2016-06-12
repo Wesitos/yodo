@@ -79,7 +79,7 @@ router.post('/', function(req, res){
     crypto.randomBytes(48, function(err, buffer){
         if (err) return res.status(500).send('Internal error');
         var donator = new donatorModel({
-            info: req.body.info,
+            info: req.body.data.info,
             contact: {
                 email: {
                     value: req.body.data.contact.email.value,
