@@ -1,5 +1,3 @@
-import 'babel-polyfill';
-
 // load express app
 import app from './app.js';
 import {logger} from './logger';
