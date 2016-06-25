@@ -154,30 +154,32 @@ router.put('/info/:id', function(req, res){
         }else{
             dat.dni = req.body.data.dni;
             dat.info = req.body.data.info;
-            dat.medinfo = req.body.data.medinfo;
             dat.save(function(err, dat){
                 if (err) return res.status(500).send('Internal error');
-                return {
+                return res.status(200).jsonp({
                     success: true,
-                    data:{
+                    data: {
                         id: dat._id,
                         dni: dat.dni,
-                        info: dat.info,
-                        medinfo: dat.medinfo
+                        info: dat.info
                     }
-                };
+                });
             });
         }
         return 1;
     });
 });
-router.put('/medinfo/:id', function(req, res){
+router.put('/vmedinfo/:id', function(req, res){
     donatorModel.findById(req.params.id, function(err, dat){
         if (err) return res.status(500).send('Internal error');
         if(dat===null){
             if (err) return res.status(404).send('Not found');
         }else{
-            dat.medinfo = req.body.data.medinfo;
+            dat.medinfo = {
+                bloodType: req.body.data.medinfo.bloodType,
+                validDonator: req.body.data.medinfo.validDonator,
+                verified: true
+            };
             dat.save(function(err, dat){
                 if (err) return res.status(500).send('Internal error');
                 var ret = {
@@ -185,8 +187,7 @@ router.put('/medinfo/:id', function(req, res){
                     data: {
                         id: dat._id,
                         dni: dat.dni,
-                        info: dat.info,
-                        medinfo: dat.info
+                        medinfo: dat.medinfo
                     }
                 };
                 return res.status(200).jsonp(ret);
