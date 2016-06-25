@@ -1,44 +1,44 @@
 (function() {
     'use strict';
-	angular
-		.module('login')
-		.factory('LoginFactory', LoginFactory);
+  angular
+    .module('login')
+    .factory('LoginFactory', LoginFactory);
 
-	LoginFactory.$inject = ['$http', '$q'];
+  LoginFactory.$inject = ['$http', '$q'];
 
-	function LoginFactory($http, $q) {		
-		var service = {
-			login: login,
-			_login: _login
-		};
+  function LoginFactory($http, $q) {
+    var service = {
+      login: login,
+      _login: _login
+    };
 
-		return service;
+    return service;
 
-		function _login(login){
-			console.log(login);
-	    	return $http({
-				method: 'GET',
-				url: '/api/login',
-				responseType: "json"			  
-			});
-		}
+    function _login(login){
+      console.log(login);
+        return $http({
+        method: 'GET',
+        url: '/api/login',
+        responseType: "json"
+      });
+    }
 
-		function login(login){
-			var login = {};
+    function login(login){
+      var login = {};
 
-			var defered = $q.defer();
-        	var promise = defered.promise;
-        	try {
-        		login = {token: 'token123'};
-				
-			    defered.resolve(login);
-			}
-			catch(err) {
-			    defered.reject(err);
-			}
-      		
-	    	return promise;
-		}
-	};
+      var defered = $q.defer();
+          var promise = defered.promise;
+          try {
+            login = {token: 'token123'};
+
+          defered.resolve(login);
+      }
+      catch(err) {
+          defered.reject(err);
+      }
+
+        return promise;
+    }
+  };
 
 })();

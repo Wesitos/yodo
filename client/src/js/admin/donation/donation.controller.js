@@ -1,48 +1,48 @@
 (function() {
     'use strict';
-	angular
-		.module('donation')
-		.controller('DonationCtrl', DonationCtrl);
+  angular
+    .module('donation')
+    .controller('DonationCtrl', DonationCtrl);
 
-	DonationCtrl.$inject = ['DonationFactory', '$state'];
+  DonationCtrl.$inject = ['DonationFactory', '$state'];
 
-	function DonationCtrl(DonationFactory, $state) {
-		
-		var vm = this;
-		vm.donation = {
-			dni_donante: 46200966,
-			quantity: 2,
-			dni_paciente: 46293939,
-			date: new Date()
-		};
+  function DonationCtrl(DonationFactory, $state) {
 
-		vm.createDonation = createDonation;
-		vm.listDonations = listDonations;
-		vm.list = [];
+    var vm = this;
+    vm.donation = {
+      dni_donante: 46200966,
+      quantity: 2,
+      dni_paciente: 46293939,
+      date: new Date()
+    };
 
-		init();	
-		
-		function init(){
-    		vm.listDonations();
-		}
+    vm.createDonation = createDonation;
+    vm.listDonations = listDonations;
+    vm.list = [];
 
-		function listDonations(){
-			DonationFactory.listDonations().then(function(response) {
-            	console.log(response);
-            	vm.list = response;
-	        });
-		}
+    init();
 
-		function createDonation(form){
-			console.log(vm.donation.date.getDate());
-			if( form.$valid ){
-				DonationFactory.createDonation(vm.donation).then(function(response) {
-	            	console.log(response);            	
-	            	//$state.go('donation');
-		        });
-			}else{
-				console.log('no validate form')
-			}
-		}
-	};
+    function init(){
+        vm.listDonations();
+    }
+
+    function listDonations(){
+      DonationFactory.listDonations().then(function(response) {
+              console.log(response);
+              vm.list = response;
+          });
+    }
+
+    function createDonation(form){
+      console.log(vm.donation.date.getDate());
+      if( form.$valid ){
+        DonationFactory.createDonation(vm.donation).then(function(response) {
+                console.log(response);
+                //$state.go('donation');
+            });
+      }else{
+        console.log('no validate form')
+      }
+    }
+  };
 })();
