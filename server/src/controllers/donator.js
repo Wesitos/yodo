@@ -135,7 +135,7 @@ router.post('/', function(req, res){
         }
       }
     };
-    verifyAddress(ret.data);
+    verifyAddress(dat);
     res.status(200).jsonp(ret);
     return 1;
   });
