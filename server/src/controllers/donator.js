@@ -221,33 +221,31 @@ router.get('/vermail/:id/:code', function(req, res){
 });
 
 router.post('/vertel', function(req, res){
-    donatorModel.findById(req.user.id, function(err, dat){
-        if (err) return res.status(500).send('Internal error');
-        if(dat===null){
-            if (err) return res.status(404).send('Not found');
-        }else{
-            if(dat.contact.email.code != req.body.data.code){
-                return {
-                    success: false,
-                    data: null
-                };
-            }else{
-                dat.contact.telephone.verified = true;
-                dat.contact.telephone.code = null;
-                dat.save(function(err, dat){
-                    if (err) return res.status(500).send('Internal error');
-                    return res.status(200).send({
-                        success: true,
-                        data: {
-                            id: dat._id,
-                            dni: dat.dni,
-                            info: dat.info
-                        }
-                    });
-                });
-            }
+  donatorModel.findById(req.user.id)
+    .then(function(dat){
+      if(dat.contact.email.code != req.body.data.code){
+        return null;
+      }
+      else{
+        dat.contact.telephone.verified = true;
+        dat.contact.telephone.code = null;
+        return dat.save();
+      }
+    }).error(function(){
+      return res.status(500).send('Internal error');
+    })
+    .then(function(dat){
+      return res.status(200).send({
+        success: dat && true,
+        data: dat && {
+          id: dat._id,
+          dni: dat.dni,
+          info: dat.info,
         }
-        return 1;
+      });
+    })
+    .error(function(){
+      res.status(500).send('Internal error');
     });
 });
 export default router;
