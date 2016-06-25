@@ -39,9 +39,28 @@
 		            
 		        </md-select>
 	      	</md-input-container>
+
 	      	<md-input-container class="md-block" flex-gt-sm>
-	        	<label>Cantidad</label>
+		        <md-select ng-model="vm.urgency.bank" style="width: 100%">
+		            <md-option value="">
+		              Seleccione Banco de Sangre
+		            </md-option>
+		            <md-option  value="0001">
+		              Loayza
+		            </md-option>		            
+		        </md-select>
+	      	</md-input-container>
+	      	
+	    </div>
+
+	    <div layout-gt-sm="row" layout="row">
+	    	<md-input-container class="md-block" flex-gt-sm>
+	        	<label>Unidades de Sangre</label>
 	        	<input type="number" ng-model="vm.urgency.quantity" required>
+	      	</md-input-container>
+	    	<md-input-container class="md-block" flex-gt-sm>
+	        	<label>Unidades de Plaquetas</label>
+	        	<input type="number" ng-model="vm.urgency.quantityplaque" required>
 	      	</md-input-container>
 	    </div>    
 

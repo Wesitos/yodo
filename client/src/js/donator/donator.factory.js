@@ -32,6 +32,9 @@
                   telephone: {
                     value: donator.telephone
                   }
+              },
+              medinfo: {
+                bloodType: donator.type
               }
           }
         },

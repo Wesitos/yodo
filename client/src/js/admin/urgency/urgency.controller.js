@@ -11,10 +11,12 @@
     var vm = this;
     vm.urgency = {
       type: 'O-',
-      quantity: 2,
+      bank: '0001',
+      quantity: 0,
+      quantityplaque: 0,
       dni: '46200966',
       priority: new Date(),
-      comment: 'Ayudo a niña con cáncer'
+      comment: 'Ayudo a niña con cáncer',      
     };
 
     vm.createUrgency = createUrgency;
