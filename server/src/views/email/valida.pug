@@ -53,8 +53,7 @@ html
               td.innerpadding.borderbottom
                 table(width='100%', border='0', cellspacing='0', cellpadding='0')
                   tr
-                    td.h2
-                      | Hola Carlo
+                    td.h2= `Hola ${name}`
                   tr
                     td.bodycopy
                       | Muchas gracias por registrarte a YoDonante
@@ -76,7 +75,7 @@ html
                             table.buttonwrapper(bgcolor='#e05443', border='0', cellspacing='0', cellpadding='0')
                               tr
                                 td.button(height='45')
-                                  a(href='#') Validar tu correo
+                                  a(href=url) Validar tu correo
             tr
               td.footer(bgcolor='#d04944')
                 table(width='100%', border='0', cellspacing='0', cellpadding='0')

@@ -1,11 +1,11 @@
 import nodemailer from 'nodemailer';
 import pug from 'pug';
+import {logger} from '../logger.js';
 
 const verifyTmplt = pug.compileFile('src/views/email/valida.pug');
 const urgenciaTmplt = pug.compileFile('src/views/email/urgencia.pug');
 
 const env = process.env,
-      production = (env.NODE_ENV == 'production'),
       HOST = env.SMTP_HOST,
       PORT = env.SMTP_PORT,
       USER = env.SMTP_USER,
@@ -14,8 +14,7 @@ const env = process.env,
         host: HOST,
         port: PORT,
         requireTLS: true,
-        logger: true,
-        debug: !production,
+        logger: logger,
         auth: {
           user: USER,
           pass: PASSWORD,
@@ -25,8 +24,10 @@ const env = process.env,
 
 export function verifyAddress(user){
   const name = (user.info.names || "").split(" ")[0],
+        production = (env.NODE_ENV === 'production'),
         code = user.contact.email.code,
-        html = urgenciaTmplt({code, name}),
+        url = `http://${env.HOSTNAME || 'localhost'}${production?``:':'+env.PORT}/api/donator/validate?user=${user.id}&code=${code}`,
+        html = verifyTmplt({url, name}),
         mailOpts = {
           from: {
             name: 'Yo dono',
