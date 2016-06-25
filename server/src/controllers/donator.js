@@ -14,7 +14,7 @@ const randomBytes = Promise.promisify(crypto.randomBytes);
 const router = Router();
 
 router.get('/bydni/:dni', function(req, res){
-    donatorModel.findOne({dni: req.params.dni}, function(err, dat){
+    donatorModel.findOne({"info.dni": req.params.dni}, function(err, dat){
         if(err) return res.status(500).send('Internal Server Error');
         if (dat===null){
             res.send({success: false, data: null});
@@ -35,10 +35,10 @@ router.get('/bydni/:dni', function(req, res){
                             verified: dat.contact.telephone.verified
                         }
                     },
-                    medinfo: {
-                        bloodType: dat.medinfo.bloodType,
-                        validDonator: dat.medinfo.validDonator,
-                        verified: dat.medinfo.verified
+                    medinfo: (dat.medinfo || null) && {
+                        bloodType: dat.medinfo.bloodType || null,
+                        validDonator: dat.medinfo.validDonator || null,
+                        verified: dat.medinfo.verified || null
                     }
                 }
             };
@@ -49,7 +49,8 @@ router.get('/bydni/:dni', function(req, res){
 });
 
 router.get('/byemail/:email', function(req, res){
-    donatorModel.findOne({email: req.params.email}, function(err, dat){
+    //TODO: Sanitizar
+    donatorModel.findOne({"contact.email.value": req.params.email}, function(err, dat){ 
         if(err) return res.status(500).send('Internal Server Error');
         if (dat==null){
             res.send({success: false, data: null});
@@ -70,10 +71,10 @@ router.get('/byemail/:email', function(req, res){
                             verified: dat.contact.telephone.verified
                         }
                     },
-                    medinfo: {
-                        bloodType: dat.medinfo.bloodType,
-                        validDonator: dat.medinfo.validDonator,
-                        verified: dat.medinfo.verified
+                    medinfo: (dat.medinfo || null) && {
+                        bloodType: dat.medinfo.bloodType || null,
+                        validDonator: dat.medinfo.validDonator || null,
+                        verified: dat.medinfo.verified || null
                     }
                 }
             };
