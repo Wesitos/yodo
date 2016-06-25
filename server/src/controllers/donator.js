@@ -86,41 +86,8 @@ router.get('/byemail/:email', function(req, res){
     });
 });
 router.post('/', function(req, res){
-  var codeBuff;
-  randomBytes(24)
-  .then(function(buffer){
-    codeBuff = buffer;
-    return genSalt();
-  })
-  .then(function(salt){
-    return hash(req.body.data.password ||'', salt);
-  })
-  .then(function(hashed){
-        //if (err) return res.status(500).send('Internal error 1');
-    var donator = new donatorModel({
-      info: req.body.data.info,
-      password: hashed,
-      contact: {
-        email: {
-          value: req.body.data.contact.email.value,
-          verified: false,
-          code: codeBuff.toString('hex')
-        },
-        telephone: {
-          value: req.body.data.contact.telephone.value,
-          verified: false,
-          code: null
-        }
-      },
-      medinfo: {
-        bloodType: req.body.data.medinfo.bloodType,
-        validDonator: null,
-        verified: false
-      }
-    });
-    return donator.save();
-  }).then(function(dat){
-    //if(err) return res.status(500).send('Internal error 2');
+  donatorModel.create(sanitize(req.body.data))
+    .save().then(function(dat){
     var ret = {
       success: true,
       data: {
@@ -129,23 +96,28 @@ router.post('/', function(req, res){
         contact: {
           email: {
             value: dat.contact.email.value,
-            verified: false
+            verified: false,
           },
           telephone: {
             value: dat.contact.telephone.value,
-            verified: false
-          }
+            verified: false,
+          },
         },
         medinfo: {
-          bloodType: dat.medinfo.bloodType
-        }
-      }
+          bloodType: dat.medinfo.bloodType,
+        },
+      },
     };
     verifyAddress(dat);
     res.status(200).jsonp(ret);
     return 1;
-  });
+    })
+    .error(function(e){
+      logger.error(e);
+      return res.status(500).send('Internal error 2');
+    });
 });
+
 router.put('/info/:id', function(req, res){
     donatorModel.findById(req.params.id, function(err, dat){
         if (err) return res.status(500).send('Internal error');
@@ -186,8 +158,7 @@ router.put('/vmedinfo/:id', function(req, res){
                     success: true,
                     data: {
                         id: dat._id,
-                        dni: dat.dni,
-                        medinfo: dat.medinfo
+                        dni: dat.dni
                     }
                 };
                 return res.status(200).jsonp(ret);
