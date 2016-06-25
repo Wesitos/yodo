@@ -15,7 +15,8 @@ const randomBytes = Promise.promisify(crypto.randomBytes);
 const router = Router();
 
 router.get('/bydni/:dni', function(req, res){
-    donatorModel.findOne({"info.dni": req.params.dni}, function(err, dat){
+    //TODO: Sanitizar
+    donatorModel.findOne({dni: req.params.dni}, function(err, dat){
         if(err) return res.status(500).send('Internal Server Error');
         if (dat===null){
             res.send({success: false, data: null});
@@ -87,36 +88,36 @@ router.get('/byemail/:email', function(req, res){
 router.post('/', function(req, res){
   var codeBuff;
   randomBytes(24)
-    .then(function(buffer){
-      codeBuff = buffer;
-      return genSalt();
-    })
-    .then(function(salt){
-      return hash(req.body.data.password ||'', salt);
-    })
-    .then(function(hashed){
+  .then(function(buffer){
+    codeBuff = buffer;
+    return genSalt();
+  })
+  .then(function(salt){
+    return hash(req.body.data.password ||'', salt);
+  })
+  .then(function(hashed){
         //if (err) return res.status(500).send('Internal error 1');
-        var donator = new donatorModel({
-          info: req.body.data.info,
-          password: hashed,
-            contact: {
-                email: {
-                    value: req.body.data.contact.email.value,
-                    verified: false,
-                    code: codeBuff.toString('hex')
-                },
-                telephone: {
-                    value: req.body.data.contact.telephone.value,
-                    verified: false,
-                    code: null
-                }
-            },
-            medinfo: {
-                bloodType: null,
-                validDonator: null,
-                verified: false
-            }
-        });
+    var donator = new donatorModel({
+      info: req.body.data.info,
+      password: hashed,
+      contact: {
+        email: {
+          value: req.body.data.contact.email.value,
+          verified: false,
+          code: codeBuff.toString('hex')
+        },
+        telephone: {
+          value: req.body.data.contact.telephone.value,
+          verified: false,
+          code: null
+        }
+      },
+      medinfo: {
+        bloodType: req.body.data.medinfo.bloodType,
+        validDonator: null,
+        verified: false
+      }
+    });
     return donator.save();
   }).then(function(dat){
     //if(err) return res.status(500).send('Internal error 2');
@@ -134,6 +135,9 @@ router.post('/', function(req, res){
             value: dat.contact.telephone.value,
             verified: false
           }
+        },
+        medinfo: {
+          bloodType: dat.medinfo.bloodType
         }
       }
     };
@@ -150,6 +154,7 @@ router.put('/info/:id', function(req, res){
         }else{
             dat.dni = req.body.data.dni;
             dat.info = req.body.data.info;
+            dat.medinfo = req.body.data.medinfo;
             dat.save(function(err, dat){
                 if (err) return res.status(500).send('Internal error');
                 return {
@@ -157,7 +162,8 @@ router.put('/info/:id', function(req, res){
                     data:{
                         id: dat._id,
                         dni: dat.dni,
-                        info: dat.info
+                        info: dat.info,
+                        medinfo: dat.medinfo
                     }
                 };
             });
