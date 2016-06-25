@@ -22,14 +22,14 @@ var oschema = new mongoose.Schema({
       verified: types.Boolean,
       code: types.String,
     },
-    medinfo: {
-      bloodType: {
-        type: types.String,
-        enum: ['O-','O+','A-','A+','B-','B+','AB-','AB+'],
-      },
-      validDonator: types.Boolean,
-      verified: types.Boolean,
+  },
+  medinfo: {
+    bloodType: {
+      type: types.String,
+      enum: ['O-','O+','A-','A+','B-','B+','AB-','AB+'],
     },
+    validDonator: types.Boolean,
+    verified: types.Boolean,
   },
 });
 export default mongoose.model('Donators',oschema);

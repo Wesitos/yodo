@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/Wesitos/yodo#readme",
   "dependencies": {
-    "babel-polyfill": "^6.9.1",
     "bcrypt": "^0.8.7",
     "bluebird": "^3.4.0",
     "body-parser": "^1.15.1",
@@ -45,6 +44,7 @@
   },
   "devDependencies": {
     "babel-cli": "^6.10.1",
+    "babel-preset-async-to-bluebird": "^1.1.0",
     "babel-preset-modern-node": "^2.1.0",
     "babel-preset-stage-0": "^6.5.0",
     "gulp": "^3.9.1",
