@@ -18,7 +18,7 @@
 	    	return $http({
 				method: 'POST',
 				url: '/api/donation',
-				data: {data: donation}
+				  data: {data: donation},
 				responseType: "json"			  
 			});
 		}
