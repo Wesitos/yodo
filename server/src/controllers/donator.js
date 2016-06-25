@@ -197,37 +197,6 @@ router.put('/vmedinfo/:id', function(req, res){
     });
 });
 
-router.get('/vermail/:id/:code', function(req, res){
-    donatorModel.findById(req.params.id, function(err, dat){
-        if (err) return res.status(500).send('Internal error');
-        if(dat===null){
-            if (err) return res.status(404).send('Not found');
-        }else{
-            if(dat.contact.email.code != req.params.code){
-                return {
-                    success: false,
-                    data: null
-                };
-            }else{
-                dat.contact.telephone.verified = true;
-                dat.contact.telephone.code = null;
-                dat.save(function(err, dat){
-                    if (err) return res.status(500).send('Internal error');
-                    return res.status(200).send({
-                        success: true,
-                        data: {
-                            id: dat._id,
-                            dni: dat.dni,
-                            info: dat.info
-                        }
-                    });
-                });
-            }
-        }
-        return 1;
-    });
-});
-
 router.post('/vertel', function(req, res){
   donatorModel.findById(req.user.id)
     .then(function(dat){
@@ -256,8 +225,6 @@ router.post('/vertel', function(req, res){
       res.status(500).send('Internal error');
     });
 });
-export default router;
-
 
 router.get('/validate', async function(req, res){
   const {user: _id, code} = req.query;
@@ -298,3 +265,5 @@ router.get('/validate', async function(req, res){
     });
   }
 });
+
+export default router;
