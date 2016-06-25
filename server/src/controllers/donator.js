@@ -5,6 +5,7 @@ import {verifyAddress} from '../utils/smtp.js';
 import donatorModel from '../models/donator.js';
 import sanitize from 'mongo-sanitize';
 import Promise from 'bluebird';
+import {logger} from '../logger.js';
 
 const genSalt = Promise.promisify(bcrypt.genSalt);
 const hash = Promise.promisify(bcrypt.hash);
@@ -249,3 +250,44 @@ router.post('/vertel', function(req, res){
     });
 });
 export default router;
+
+
+router.get('/validate', async function(req, res){
+  const {user: _id, code} = req.query;
+  var donator;
+  try{
+    donator = await donatorModel.findById(_id);
+  }
+  catch(e){
+    logger.error(e);
+    res.status(500).json({
+      sucess: false,
+    });
+    return;
+  }
+  if (donator !== null &&
+      donator.contact.email.code === code){
+    // Verifica el correo
+    donator.contact.email.verified = true;
+    // Elimina el codigo de verificacion
+    donator.contact.email.code = undefined;
+    try{
+      await donator.save();
+    }
+    catch(e){
+      logger.error(e);
+      res.status(500).json({
+        success: false,
+      });
+      return;
+    }
+    res.status(200).json({
+      sucess: true,
+    });
+  }
+  else{
+    res.status(404).json({
+      sucess: false,
+    });
+  }
+});
