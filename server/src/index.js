@@ -1,4 +1,5 @@
 // load express app
+import 'dotenv/config';
 import app from './app.js';
 import {logger} from './logger';
 

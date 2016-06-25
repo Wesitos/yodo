@@ -6,7 +6,7 @@
   "scripts": {
     "build": "babel src/ --out-dir dist",
     "dev": "gulp watch",
-    "start": "node --require 'dotenv/config' dist/index.js"
+    "start": "node dist/index.js"
   },
   "repository": {
     "type": "git",
