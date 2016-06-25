@@ -39,6 +39,7 @@ GET /api/donator/byemail/:email
 ```
 POST /api/donator
 ```
+
 Request
 ```json
 {
@@ -85,8 +86,7 @@ Response
     }
   }
 }
-```
-```
+
 ```PUT /api/donator/info/:id```
 ```json
 {
@@ -218,11 +218,12 @@ Response
   ]
 }
 ```
+
 ```POST /api/receptor```
 Request
 ```json
 {
-  data: {
+  "data": {
     "bloodType": "AB+",
     "quantity": 5,
     "bloodBank": "adbhjhfye3743ji3gd",
