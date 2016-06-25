@@ -1,5 +1,6 @@
 import nodemailer from 'nodemailer';
 import pug from 'pug';
+import juice from 'juice';
 import {logger} from '../logger.js';
 
 const verifyTmplt = pug.compileFile('src/views/email/valida.pug');
@@ -27,7 +28,7 @@ export function verifyAddress(user){
         production = (env.NODE_ENV === 'production'),
         code = user.contact.email.code,
         url = `http://${env.HOSTNAME || 'localhost'}${production?``:':'+env.PORT}/api/donator/validate?user=${user.id}&code=${code}`,
-        html = verifyTmplt({url, name}),
+        html = juice(verifyTmplt({url, name})),
         mailOpts = {
           from: {
             name: 'Yo dono',
