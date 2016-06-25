@@ -12,34 +12,32 @@ const compare = Promise.promisify(bcrypt.compare);
 router.post('/', function(req, res){
   const email = sanitize(req.body.data.email),
         password = sanitize(req.body.data.password);
-  donatorModel.findOne({"contact.email.value": email},
-                       {"contact.email.verified": 1,
-                        password: 1,
-                       })
+  donatorModel.findOne({"contact.email.value": email})
     .then(function(dat){
       if (dat !== null){
-        return compare(password, dat.password)
-          .then(function(same){
-            if (same){
-              // set cookie
-              let token = signJWT({
-                userId: dat,
-                bankId: null,
-              });
-              res.cookie('token', token, {httpOnly: true});
-              res.json({
-                success: true,
-              });
-            }
-            else{
-              // some error
-              res.json({
-                success: false,
-              });
-            }
-          });
+        return [compare(password, dat.password), dat];
       }
       else{
+        res.json({
+          success: false,
+        });
+        return [null, dat];
+      }
+    })
+    .spread(function(same, dat){
+      if (same){
+        // set cookie
+        let token = signJWT({
+          userId: dat,
+          bankId: null,
+        });
+        res.cookie('token', token, {httpOnly: true});
+        res.json({
+          success: true,
+        });
+      }
+      else{
+        // some error
         res.json({
           success: false,
         });
